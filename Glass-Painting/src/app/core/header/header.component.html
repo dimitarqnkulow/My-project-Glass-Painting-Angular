@@ -1,1 +1,31 @@
-<p>header works!</p>
+<header>
+  <div class="header_wrapper">
+    <div class="logo">Hekto</div>
+
+    <nav class="navigation_wrapper">
+      <a routerLink="/home" class="router_link">Home</a>
+
+      <a class="router_link">Make</a>
+
+      <a class="router_link">Catalogue</a>
+
+      <a class="router_link">Cart</a>
+    </nav>
+
+    <div class="search_bar_wrapper">
+      <input class="search_bar_input" type="text" />
+
+      <button class="search_bar_button">
+        <img src="./assets/uil_search.svg" />
+      </button>
+    </div>
+
+    <div class="user_buttons_wrapper">
+      <button class="user_guide_button" routerLink="/login">Login</button>
+
+      <button class="logout user_guide_button">Logout</button>
+
+      <button class="user_guide_button" routerLink="/register">Register</button>
+    </div>
+  </div>
+</header>
