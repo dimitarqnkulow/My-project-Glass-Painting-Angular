@@ -7,6 +7,7 @@ const articleSchema = new mongoose.Schema({
   img: { type: String, required: true },
   material: { type: String, required: true },
   crafting: { type: Number, required: true },
+  likes: { type: Number, required: true },
   // ownerId: { type: mongoose.Types.ObjectId, ref: "User" },
 });
 

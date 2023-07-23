@@ -7,6 +7,11 @@ router.get("/", async (req, res) => {
 
   res.json(article);
 });
+router.get("/trending", async (req, res) => {
+  const article = await articleManager.getTrending();
+
+  res.json(article);
+});
 
 router.post("/", async (req, res) => {
   try {
@@ -28,6 +33,12 @@ router.get("/:articleId", async (req, res) => {
   res.json(article);
 });
 
+//GET TRENDING
+router.get("/trending", async (req, res) => {
+  const article = await articleManager.getAll();
+
+  res.json(article);
+});
 // router.put("/:articleId", async (req, res) => {
 //   await articleManager.update(req.params.articleId, req.body);
 

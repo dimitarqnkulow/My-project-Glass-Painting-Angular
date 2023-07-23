@@ -19,6 +19,10 @@ exports.getAll = async (qs) => {
 
 exports.getOne = (articleId) => Article.findById(articleId);
 
+exports.getTrending = () => {
+  return Article.find().sort({ likes: "desc" }).limit(3);
+};
+
 // exports.update = (articleId, articleData) =>
 //   Article.findByIdAndUpdate(articleId, articleData);
 
