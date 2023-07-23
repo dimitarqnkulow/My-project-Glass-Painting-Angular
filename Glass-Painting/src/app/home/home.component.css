@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+.image_responsive {
+  width: 100%;
+  height: auto;
+}
+.home_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.home_wrapper .about_us_wrapper {
+  padding: 2rem 15rem;
+}
+.home_wrapper .about_us_wrapper .image_and_text_wrapper {
+  display: flex;
+  padding: 50px;
+  gap: 25px;
+  justify-content: center;
+}
+.home_wrapper
+  .about_us_wrapper
+  .image_and_text_wrapper
+  .header_and_text_wrapper {
+  display: flex;
+  flex-direction: column;
+  /* max-width: 550px; */
+}
+.home_wrapper
+  .about_us_wrapper
+  .image_and_text_wrapper
+  .image_wrapper
+  .video_responsive {
+  width: 100%;
+  height: auto;
+}
+.home_wrapper .about_us_wrapper .about_us_header {
+  color: #1a0b5b;
+  font-family: Josefin Sans;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.home_wrapper .about_us_wrapper .about_us_header_secondary {
+  color: var(--text, #151875);
+  font-family: Josefin Sans;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48px;
+  /* 133.333% */
+}
+.home_wrapper .about_us_wrapper .about_us_text {
+  color: var(--sub-text-color, #8a8fb9);
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25.6px;
+  /* 160% */
+  /*HOME BANNER STYLES */
+}
+.home_wrapper .product_banner_wrapper {
+  padding: 2rem 17rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../assets/product_banner.svg");
+}
+.home_wrapper .product_banner_wrapper .product_description_wrapper {
+  width: 50%;
+}
+.home_wrapper .product_banner_wrapper .product_header {
+  color: #000;
+  font-family: Josefin Sans;
+  font-size: 53px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 132%;
+  /* 69.96px */
+  letter-spacing: 0.795px;
+}
+.home_wrapper .product_banner_wrapper .product_description {
+  color: var(--sub-text-color, #8a8fb9);
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  /* 175% */
+  /* PRODUCT CARD */
+}
+.home_wrapper .trending_products_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+}
+.home_wrapper .trending_products_wrapper .trending_products_header {
+  color: var(--text, #151875);
+  font-family: Josefin Sans;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.home_wrapper .trending_products_wrapper .trendings_products_list {
+  display: flex;
+
+  gap: 50px;
+  padding: 5rem 0;
+}
+.home_wrapper .product_card {
+  padding: 10px 10px 25px 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 270px;
+  max-height: 350px;
+  align-items: center;
+  align-items: center;
+  position: relative;
+  gap: 15px;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+}
+.home_wrapper .product_card .product_card_image {
+  max-width: 247px;
+  max-height: 244px;
+  background: #f5f6f8;
+}
+.home_wrapper .product_card .product_card_name {
+  color: var(--text, #151875);
+  text-align: center;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25.6px;
+  /* 160% */
+  display: flex;
+}
+.home_wrapper .product_card .product_card_price {
+  color: var(--text, #151875);
+  text-align: center;
+  position: relative;
+  /* Caption\ */
+  font-family: Josefin Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+}
+.home_wrapper .product_card .product_card_price .product_card_discount_price {
+  color: rgba(21, 24, 117, 0.3);
+  text-align: center;
+  position: absolute;
+  right: -55px;
+  /* price cut */
+  font-family: Josefin Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: line-through;
+}
+.home_wrapper .product_card .product_card_button {
+  display: inline-flex;
+  padding: 11px 39px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #fb2e86;
+  color: #fff;
+  text-align: center;
+  font-family: Josefin Sans;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  position: absolute;
+  bottom: -25px;
+}

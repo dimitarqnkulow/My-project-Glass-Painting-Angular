@@ -18,4 +18,8 @@ export class ApiService {
     const { apiURL } = environment;
     return this.http.get<Article>(`${apiURL}/data/items/${articleId}`);
   }
+  getTrending() {
+    const { apiURL } = environment;
+    return this.http.get<Article[]>(`${apiURL}/data/items/trending`);
+  }
 }
