@@ -108,7 +108,6 @@
 }
 .home_wrapper .trending_products_wrapper .trendings_products_list {
   display: flex;
-
   gap: 50px;
   padding: 5rem 0;
 }
