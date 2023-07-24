@@ -125,9 +125,11 @@
   border-radius: 5px;
 }
 .home_wrapper .product_card .product_card_image {
-  max-width: 247px;
-  max-height: 244px;
+  /* min-width: 247px;
+  min-height: 244px; */
   background: #f5f6f8;
+  width: 247px;
+  height: 244px;
 }
 .home_wrapper .product_card .product_card_name {
   color: var(--text, #151875);

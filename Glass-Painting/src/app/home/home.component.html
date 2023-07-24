@@ -65,8 +65,8 @@
     <div *ngIf="isLoading">
       <app-loader />
     </div>
-    <div class="trendings_products_list" *ngFor="let article of itemsList">
-      <div class="product_card" *ngIf="!isLoading">
+    <div class="trendings_products_list" *ngIf="!isLoading">
+      <div class="product_card" *ngFor="let article of itemsList">
         <img class="product_card_image" src="{{ article.img }}" />
         <div class="product_card_name">{{ article.name }}</div>
         <div class="product_card_price">
