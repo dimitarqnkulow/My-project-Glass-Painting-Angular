@@ -49,6 +49,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 48px;
+  width: 600px;
   /* 133.333% */
 }
 .home_wrapper .about_us_wrapper .about_us_text {
@@ -58,6 +59,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 25.6px;
+  text-align: justify;
   /* 160% */
   /*HOME BANNER STYLES */
 }
@@ -67,12 +69,13 @@
   justify-content: center;
   align-items: center;
   background: url("../../assets/product_banner.svg");
+  gap: 50px;
 }
 .home_wrapper .product_banner_wrapper .product_description_wrapper {
   width: 50%;
 }
 .home_wrapper .product_banner_wrapper .product_header {
-  color: #000;
+  color: var(--text, #151875);
   font-family: Josefin Sans;
   font-size: 53px;
   font-style: normal;
@@ -88,6 +91,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
+  text-align: justify;
   /* 175% */
   /* PRODUCT CARD */
 }
