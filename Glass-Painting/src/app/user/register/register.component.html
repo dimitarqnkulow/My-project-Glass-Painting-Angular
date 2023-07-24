@@ -1,1 +1,26 @@
-<p>register works!</p>
+<div class="register_page">
+  <div class="register_wrapper">
+    <div class="heading">Register</div>
+
+    <div class="error_register">Error! Invalid email address!</div>
+
+    <form class="ng_form">
+      <input class="input_field" type="email" placeholder="Email address" />
+
+      <input class="input_field" type="password" placeholder="Password" />
+
+      <input
+        class="input_field"
+        type="password"
+        placeholder="Repeat Password"
+      />
+
+      <button class="sign_in_button" type="submit">Sign in</button>
+
+      <div class="log_in_link">
+        If you already have an account?
+        <a routerLink="/login" class="sign_in">Sign in</a>
+      </div>
+    </form>
+  </div>
+</div>

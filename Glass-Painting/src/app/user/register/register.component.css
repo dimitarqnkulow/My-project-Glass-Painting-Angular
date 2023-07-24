@@ -1,0 +1,81 @@
+.register_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 200px 0;
+}
+.register_page .register_wrapper {
+  background: #fff;
+  box-shadow: 0px 0px 25px 10px #f8f8fb;
+  /* min-height: 488px;
+   min-width: 544px; */
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.register_page .register_wrapper .heading {
+  color: #000;
+  font-family: Josefin Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.register_page .register_wrapper .error_register {
+  color: red;
+  font-family: Lato;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-weight: bold;
+}
+.register_page .register_wrapper .ng_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 28px;
+}
+.register_page .register_wrapper .ng_form .input_field {
+  border-radius: 2px;
+  border: 1px solid #c2c5e1;
+  background: #fff;
+  color: #9096b2;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  min-width: 426px;
+  min-height: 48px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.register_page .register_wrapper .ng_form .sign_in_button {
+  width: 432px;
+  height: 47px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  background: #fb2e86;
+  color: var(--white, #fff);
+  font-family: Lato;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+}
+.register_page .register_wrapper .ng_form .log_in_link {
+  color: #9096b2;
+  font-family: Lato;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
