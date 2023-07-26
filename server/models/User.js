@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    match: [/[^@]{6,}@(abv|gmail|yahoo)\.(bg|com)$/, "Invalid email adress!"],
   },
   password: {
     type: String,
@@ -12,6 +13,11 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.virtual("repeatPassword").set(function (value) {
+  if (value !== this.password) {
+    throw new Error("Password missmatch!");
+  }
+});
 userSchema.pre("save", async function () {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;

@@ -1,38 +1,43 @@
+const jwt = require("../lib/jwt");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const { SECRET } = require("../configuration/config");
+
 exports.register = async (userData) => {
-  const user = await User.create(userData);
-  const result = getAuthResult(user);
-  return result;
+  const user = await User.findOne({ email: userData.email });
+
+  if (user) {
+    throw new Error("Username already exists!");
+  }
+  const createdUser = await User.create(userData);
+
+  const token = await generateToken(createdUser);
+
+  return token;
 };
 
-exports.login = async ({ email, password }) => {
+exports.login = async (email, password) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Error("Invalid username or password");
+    throw new Error("Username or password is invalid!");
   }
 
   const isValid = await bcrypt.compare(password, user.password);
   if (!isValid) {
-    throw new Error("Invalid username or password");
+    throw new Error("Username or password is invalid!");
   }
-  const result = getAuthResult(user);
-  return result;
+
+  const token = await generateToken(user);
+  return token;
 };
 
-function getAuthResult(user) {
+async function generateToken(user) {
   const payload = {
     _id: user._id,
     email: user.email,
   };
-  const token = jwt.sign(payload, "BIGGESTSECRET", { expiresIn: "1d" });
+  const token = jwt.sign(payload, SECRET, { expiresIn: "1d" });
 
-  const result = {
-    _id: user._id,
-    email: user.email,
-    accessToken: token,
-  };
-  return result;
+  return token;
 }
