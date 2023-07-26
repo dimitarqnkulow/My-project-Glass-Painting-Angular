@@ -72,7 +72,10 @@
             >${{ article.price + article.price * 0.25 }}
           </span>
         </div>
-        <button class="product_card_button" [routerLink]="article._id">
+        <button
+          class="product_card_button"
+          [routerLink]="['/catalogue', article._id]"
+        >
           Details
         </button>
       </div>

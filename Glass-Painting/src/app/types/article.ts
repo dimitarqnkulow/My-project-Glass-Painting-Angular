@@ -6,4 +6,5 @@ export interface Article {
   img: string;
   material: string;
   crafting: string;
+  likes: string;
 }

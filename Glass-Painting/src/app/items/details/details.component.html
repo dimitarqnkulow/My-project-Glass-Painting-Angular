@@ -1,0 +1,65 @@
+<div *ngIf="article">
+  <div class="details_page_header">
+    <div class="header">
+      <a class="back_button" (click)="goBack()"> &larr; Back</a>
+      <h1 class="heading">Product Details</h1>
+    </div>
+  </div>
+
+  <div class="product_wrapper">
+    <div class="product_box">
+      <div class="image_wrapper">
+        <img class="product_image" src="{{ article.img }}" />
+      </div>
+
+      <div class="name_and_description_wrapper">
+        <h2 class="product_name">{{ article.name }}</h2>
+
+        <div class="likes_counter">
+          <img id="likes_icon" src="../../../../../assets/likes_count.png" />
+
+          <p class="likes_count">{{ article.likes }}</p>
+        </div>
+
+        <div class="product_card_price">
+          ${{ article.price.toFixed(2) }}
+          <ng-container>
+            <span class="product_card_discount_price"
+              >${{ (article.price + article.price * 0.25).toFixed(2) }}
+            </span>
+          </ng-container>
+        </div>
+
+        <div class="product_description_wrapper">
+          <p class="product_material">Description</p>
+
+          <p class="product_description">
+            {{ article.description }}
+          </p>
+        </div>
+
+        <div class="product_description_wrapper">
+          <p class="product_material">Materials</p>
+
+          <p class="product_description">
+            {{ article.material }}
+          </p>
+        </div>
+
+        <div class="product_description_wrapper">
+          <p class="product_material">Crafting time</p>
+
+          <p class="product_description">{{ article.crafting }} days</p>
+        </div>
+
+        <div class="buttons_wrapper">
+          <div class="like_icon"></div>
+
+          <div class="unlike_icon"></div>
+
+          <button class="button button_buy">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
