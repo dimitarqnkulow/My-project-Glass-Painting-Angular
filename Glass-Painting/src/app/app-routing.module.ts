@@ -10,6 +10,10 @@ const routes: Routes = [
     redirectTo: '/home',
   },
   {
+    path: 'users',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },

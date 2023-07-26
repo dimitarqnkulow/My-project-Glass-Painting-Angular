@@ -5,9 +5,9 @@
     <nav class="navigation_wrapper">
       <a routerLink="/home" class="router_link">Home</a>
 
-      <a class="router_link">Make</a>
+      <a class="router_link" routerLink="/make">Make</a>
 
-      <a class="router_link">Catalogue</a>
+      <a class="router_link" routerLink="/catalogue">Catalogue</a>
 
       <a class="router_link">Cart</a>
     </nav>
@@ -21,11 +21,13 @@
     </div>
 
     <div class="user_buttons_wrapper">
-      <button class="user_guide_button" routerLink="/login">Login</button>
+      <button class="user_guide_button" routerLink="/users/login">Login</button>
 
       <button class="logout user_guide_button">Logout</button>
 
-      <button class="user_guide_button" routerLink="/register">Register</button>
+      <button class="user_guide_button" routerLink="/users/register">
+        Register
+      </button>
     </div>
   </div>
 </header>
