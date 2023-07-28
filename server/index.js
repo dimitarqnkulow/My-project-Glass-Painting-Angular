@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
-// app.use(auth);
+app.use(auth);
 app.use(routes);
 
 app.listen(3030, () =>
