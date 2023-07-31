@@ -1,7 +1,7 @@
 <div class="register_page">
   <div class="register_wrapper">
     <div class="heading">Register</div>
-
+    <div class="error_register">Error! Invalid password!</div>
     <form class="ng_form" [formGroup]="form" (ngSubmit)="register()">
       <input
         class="input_field"
@@ -69,7 +69,7 @@
         </ng-container>
       </ng-container>
       <button class="sign_in_button" type="submit" [disabled]="!form.valid">
-        Sign in
+        Register
       </button>
 
       <div class="log_in_link">

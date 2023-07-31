@@ -1,4 +1,5 @@
 const articleManager = require("../manager/itemsManager");
+const { auth } = require("../middlewares/authMiddleware");
 
 const router = require("express").Router();
 
@@ -7,13 +8,27 @@ router.get("/", async (req, res) => {
 
   res.json(article);
 });
-router.get("/trending", async (req, res) => {
-  const article = await articleManager.getTrending();
+router.get(
+  "/trending",
+  (req, res, next) => {
+    try {
+      const token = req.headers.authorization;
+      jwt.verify(token, SECRET);
+      next();
+    } catch (err) {
+      res.status(401).json({
+        message: "Error with Authentication token",
+      });
+    }
+  },
+  async (req, res) => {
+    const article = await articleManager.getTrending();
 
-  res.json(article);
-});
+    res.json(article);
+  }
+);
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     await articleManager.create({ ...req.body });
 
@@ -34,11 +49,25 @@ router.get("/:articleId", async (req, res) => {
 });
 
 //GET TRENDING
-router.get("/trending", async (req, res) => {
-  const article = await articleManager.getAll();
+router.get(
+  "/trending",
+  (req, res, next) => {
+    try {
+      const token = req.headers.authorization;
+      jwt.verify(token, SECRET);
+      next();
+    } catch (err) {
+      res.status(401).json({
+        message: "Error with Authentication token",
+      });
+    }
+  },
+  async (req, res) => {
+    const article = await articleManager.getAll();
 
-  res.json(article);
-});
+    res.json(article);
+  }
+);
 // router.put("/:articleId", async (req, res) => {
 //   await articleManager.update(req.params.articleId, req.body);
 

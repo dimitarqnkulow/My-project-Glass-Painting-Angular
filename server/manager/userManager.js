@@ -11,13 +11,14 @@ exports.register = async (userData) => {
   }
   const createdUser = await User.create(userData);
 
-  const token = await generateToken(createdUser);
+  // const token = await generateToken(createdUser);
 
-  return token;
+  // return token;
+  return createdUser;
 };
 
-exports.login = async (email, password) => {
-  const user = await User.findOne({ email });
+exports.login = async ({ email, password }) => {
+  const user = await User.findOne({ email: email });
 
   if (!user) {
     throw new Error("Username or password is invalid!");
@@ -37,7 +38,7 @@ async function generateToken(user) {
     _id: user._id,
     email: user.email,
   };
-  const token = jwt.sign(payload, SECRET, { expiresIn: "1d" });
+  const token = jwt.sign(payload, SECRET, { expiresIn: "1h" });
 
   return token;
 }
