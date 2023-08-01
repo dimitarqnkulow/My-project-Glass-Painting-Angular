@@ -8,25 +8,11 @@ router.get("/", async (req, res) => {
 
   res.json(article);
 });
-router.get(
-  "/trending",
-  (req, res, next) => {
-    try {
-      const token = req.headers.authorization;
-      jwt.verify(token, SECRET);
-      next();
-    } catch (err) {
-      res.status(401).json({
-        message: "Error with Authentication token",
-      });
-    }
-  },
-  async (req, res) => {
-    const article = await articleManager.getTrending();
+router.get("/trending", async (req, res) => {
+  const article = await articleManager.getTrending();
 
-    res.json(article);
-  }
-);
+  res.json(article);
+});
 
 router.post("/", auth, async (req, res) => {
   try {

@@ -5,9 +5,13 @@
     <nav class="navigation_wrapper">
       <a routerLink="/home" class="router_link">Home</a>
 
-      <a class="router_link" routerLink="/make">Make</a>
+      <a class="router_link" routerLink="/make" *ngIf="userAuthenticated"
+        >Make</a
+      >
 
-      <a class="router_link" routerLink="/catalogue">Catalogue</a>
+      <a class="router_link" routerLink="/catalogue" *ngIf="userAuthenticated"
+        >Catalogue</a
+      >
 
       <a class="router_link">Cart</a>
     </nav>
@@ -21,13 +25,21 @@
     </div>
 
     <div class="user_buttons_wrapper">
-      <button class="user_guide_button" routerLink="/users/login">Login</button>
+      <ng-container *ngIf="userAuthenticated">
+        <button class="logout user_guide_button" (click)="logout()">
+          Logout
+        </button>
+      </ng-container>
 
-      <button class="logout user_guide_button">Logout</button>
+      <ng-container *ngIf="!userAuthenticated">
+        <button class="user_guide_button" routerLink="/users/login">
+          Login
+        </button>
 
-      <button class="user_guide_button" routerLink="/users/register">
-        Register
-      </button>
+        <button class="user_guide_button" routerLink="/users/register">
+          Register
+        </button>
+      </ng-container>
     </div>
   </div>
 </header>

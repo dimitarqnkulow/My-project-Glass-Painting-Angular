@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DetailsComponent } from './details/details.component';
+import { AuthActivate } from '../core/guards/router.guards';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: CatalogueComponent,
+        canActivate: [AuthActivate],
       },
       {
         path: ':articleId',

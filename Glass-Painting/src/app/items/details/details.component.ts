@@ -1,25 +1,42 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { Article } from 'src/app/types/article';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
   article: Article | undefined;
   isLoading: boolean = true;
+
+  private authenticationSub: Subscription | undefined;
+
+  isAuthenticated = false;
   constructor(
     private apiService: ApiService,
     private activeRoute: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) {}
 
+  ngOnDestroy(): void {
+    this.authenticationSub?.unsubscribe();
+  }
   ngOnInit(): void {
     this.fetchArticle();
+    this.authenticationSub = this.userService
+      .getAuthenticated()
+      .subscribe((status) => {
+        this.isAuthenticated = status;
+      });
+
+    this.isAuthenticated = this.userService.getIsAuthenticated();
   }
 
   goBack(): void {

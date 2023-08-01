@@ -53,11 +53,13 @@
         </div>
 
         <div class="buttons_wrapper">
-          <div class="like_icon"></div>
+          <ng-container *ngIf="isAuthenticated">
+            <div class="like_icon"></div>
 
-          <div class="unlike_icon"></div>
+            <div class="unlike_icon"></div>
 
-          <button class="button button_buy">Buy</button>
+            <button class="button button_buy">Buy</button>
+          </ng-container>
         </div>
       </div>
     </div>
