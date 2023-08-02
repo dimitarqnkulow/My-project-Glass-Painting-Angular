@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     match: [/[^@]{6,}@(abv|gmail|yahoo)\.(bg|com)$/, "Invalid email adress!"],
   },
   password: {

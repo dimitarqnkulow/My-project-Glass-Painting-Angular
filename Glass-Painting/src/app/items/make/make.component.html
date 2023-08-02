@@ -1,0 +1,79 @@
+<div class="form_wrapper">
+  <form class="form" [formGroup]="form" (ngSubmit)="order()">
+    <h2 class="form_heading">
+      Describe your emotions on glass and we will paint it for you!
+    </h2>
+    <div class="name_wrapper">
+      <input
+        class="form_input"
+        placeholder="Your Name*"
+        type="text"
+        formControlName="name"
+      />
+      <ng-container *ngIf="form.get('name')?.touched">
+        <div
+          class="error_register"
+          *ngIf="form.get('name')?.errors?.['required']"
+        >
+          Your name is required!
+        </div>
+        <div
+          class="error_register"
+          *ngIf="form.get('name')?.errors?.['nameValidator']"
+        >
+          Your name must be alphanumeric!
+        </div>
+      </ng-container>
+      <input
+        class="form_input"
+        placeholder="Your Surename"
+        type="text"
+        formControlName="sureName"
+      />
+    </div>
+    <input
+      class="form_input"
+      placeholder="Phone*"
+      type="tel"
+      name="phone"
+      value="+359 "
+      formControlName="phone"
+    />
+    <ng-container *ngIf="form.get('phone')?.touched">
+      <div
+        class="error_register"
+        *ngIf="form.get('phone')?.errors?.['required']"
+      >
+        Phone number is required!
+      </div>
+      <div
+        class="error_register"
+        *ngIf="form.get('phone')?.errors?.['phoneNumberValidator'] "
+      >
+        Please enter 10 digit valid phone number!
+      </div>
+    </ng-container>
+    <textarea
+      name="descritpion"
+      class="form_input text_area"
+      placeholder="Type Your Messege*"
+      type="text"
+      formControlName="description"
+    ></textarea>
+    <ng-container *ngIf="form.get('description')?.touched">
+      <div
+        class="error_register"
+        *ngIf="form.get('description')?.errors?.['required']"
+      >
+        Description is required!
+      </div>
+      <div
+        class="error_register"
+        *ngIf="form.get('description')?.errors?.['minlength']"
+      >
+        Description must be at least 15 characters!
+      </div>
+    </ng-container>
+    <button class="button button_order">Order</button>
+  </form>
+</div>

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const User = require("./User");
 
 const articleSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -7,8 +8,7 @@ const articleSchema = new mongoose.Schema({
   img: { type: String, required: true },
   material: { type: String, required: true },
   crafting: { type: Number, required: true },
-  likes: { type: Number, required: true },
-  // ownerId: { type: mongoose.Types.ObjectId, ref: "User" },
+  likes: [{ type: mongoose.Types.ObjectId, ref: User }],
 });
 
 const Article = mongoose.model("Article", articleSchema);

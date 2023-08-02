@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DetailsComponent } from './details/details.component';
 import { AuthActivate } from '../core/guards/router.guards';
+import { MakeComponent } from './make/make.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
         component: DetailsComponent,
       },
     ],
+  },
+  {
+    path: 'make',
+    component: MakeComponent,
   },
 ];
 
