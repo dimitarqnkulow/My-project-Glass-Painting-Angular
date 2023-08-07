@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+.items_wrapper {
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+.details_page_header,
+.cart_wrapper {
+  display: flex;
+  box-sizing: border-box;
+}
+.cart_wrapper {
+  margin-top: 100px;
+  padding: 0 20rem;
+}
+.item_wrapper {
+  width: 40%;
+  gap: 20px;
+}
+.first_item {
+  width: 40%;
+}
+.second_item {
+  width: 20%;
+}
+.item_image_wrapper {
+  position: relative;
+}
+.product_image {
+  max-width: 83px;
+  max-height: 87px;
+  border-radius: 3px;
+}
+.item_description {
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 5px;
+}
+.product_image_icon {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.cart_wrapper div {
+  display: flex;
+  box-sizing: border-box;
+}
+.details_page_header div {
+  display: flex;
+  box-sizing: border-box;
+}
+/* div {
+ display: flex;
+ box-sizing: border-box;
+ } */
+.header {
+  background: #f6f5ff;
+  padding: 6rem 20rem;
+  width: 100%;
+}
+.header .back_button {
+  color: #fb2e86;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 125% */
+}
+.header .heading {
+  color: #101750;
+  font-family: Josefin Sans;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.item_price,
+.item_total_price {
+  color: #15245e;
+  font-family: Josefin Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.item_price {
+  width: 20%;
+  margin: 10px;
+}
+.item_quantity_wrapper {
+  width: 20%;
+}
+.item_total_price {
+  width: 20%;
+}
+.item {
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.products_list {
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
+}
+.list_header_wrapper {
+  width: 100%;
+}
+.list_header_item {
+  color: #1d3178;
+  font-family: Josefin Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.item_name {
+  color: #1d3178;
+  font-family: Josefin Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.item_color,
+.item_size {
+  color: #a1a8c1;
+  font-family: Josefin Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -11,15 +11,13 @@
 
       <a class="router_link" routerLink="/catalogue">Catalogue</a>
 
-      <a class="router_link">Cart</a>
+      <a class="router_link" routerLink="/liked" *ngIf="userAuthenticated"
+        >My Liked Articles</a
+      >
     </nav>
 
     <div class="search_bar_wrapper">
-      <input class="search_bar_input" type="text" />
-
-      <button class="search_bar_button">
-        <img src="./assets/uil_search.svg" />
-      </button>
+      <div class="loged_user" *ngIf="userAuthenticated">Hello, user email!</div>
     </div>
 
     <div class="user_buttons_wrapper">

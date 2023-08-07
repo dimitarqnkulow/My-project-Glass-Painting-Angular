@@ -14,6 +14,12 @@ router.get("/trending", async (req, res) => {
   res.json(article);
 });
 
+router.get("/:userId/liked", async (req, res) => {
+  const article = await articleManager.getLikedArts(req.params.userId);
+
+  res.json(article);
+});
+
 router.post("/", auth, async (req, res) => {
   try {
     await articleManager.create({ ...req.body });
@@ -34,35 +40,18 @@ router.get("/:articleId", async (req, res) => {
   res.json(article);
 });
 
-//GET TRENDING
-router.get(
-  "/trending",
-  (req, res, next) => {
-    try {
-      const token = req.headers.authorization;
-      jwt.verify(token, SECRET);
-      next();
-    } catch (err) {
-      res.status(401).json({
-        message: "Error with Authentication token",
-      });
-    }
-  },
-  async (req, res) => {
-    const article = await articleManager.getAll();
+router.post("/:articleId", auth, async (req, res) => {
+  const userId = req.body.userId;
 
-    res.json(article);
-  }
-);
-// router.put("/:articleId", async (req, res) => {
-//   await articleManager.update(req.params.articleId, req.body);
+  await articleManager.addLike(req.params.articleId, userId);
 
-//   res.status(204).end();
-// });
+  res.status(204).end();
+});
+router.put("/:articleId", auth, async (req, res) => {
+  const userId = req.body.userId;
 
-// router.delete("/:articleId", async (req, res) => {
-//   await articleManager.delete(req.params.articleId);
+  await articleManager.removeLike(req.params.articleId, userId);
 
-//   res.status(204).end();
-// });
+  res.status(204).end();
+});
 module.exports = router;

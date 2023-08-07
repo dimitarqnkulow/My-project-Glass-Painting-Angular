@@ -4,6 +4,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { DetailsComponent } from './details/details.component';
 import { AuthActivate } from '../core/guards/router.guards';
 import { MakeComponent } from './make/make.component';
+import { LikedComponent } from './liked/liked.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,6 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: CatalogueComponent,
-        canActivate: [AuthActivate],
       },
       {
         path: ':articleId',
@@ -24,6 +24,12 @@ const routes: Routes = [
   {
     path: 'make',
     component: MakeComponent,
+    canActivate: [AuthActivate],
+  },
+  {
+    path: 'liked',
+    component: LikedComponent,
+    canActivate: [AuthActivate],
   },
 ];
 

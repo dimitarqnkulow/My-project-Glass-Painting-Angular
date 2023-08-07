@@ -30,10 +30,10 @@
   gap: 36px;
 }
 .header_wrapper .router_link {
-  color: #000;
-  font-family: Lato;
+  color: #0d0e43;
+  font-family: Josefin Sans;
   font-size: 16px;
-  font-style: normal;
+  font-style: bold;
   font-weight: 400;
   line-height: 20px;
   /* 125% */
@@ -54,6 +54,14 @@
   border: none;
   height: 40px;
   width: 51px;
+}
+.loged_user {
+  color: #0d0e43;
+  font-family: Josefin Sans;
+  font-size: 16px;
+  font-style: bold;
+  font-weight: 400;
+  line-height: 20px;
 }
 .header_wrapper .user_buttons_wrapper {
   display: flex;

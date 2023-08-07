@@ -1,0 +1,45 @@
+<div class="details_page_header">
+  <div class="header">
+    <a class="back_button"> &larr; Back</a>
+    <h1 class="heading">Shopping Cart</h1>
+  </div>
+</div>
+
+<div class="cart_wrapper">
+  <div class="products_list">
+    <div class="list_header_wrapper">
+      <div class="list_header_item first_item">Product</div>
+      <div class="list_header_item second_item">Mateirals</div>
+      <div class="list_header_item second_item">Crafting</div>
+      <div class="list_header_item second_item">Optional Price</div>
+    </div>
+
+    <div class="items_wrapper">
+      <div class="item" *ngFor="let article of itemsList">
+        <div class="item_wrapper">
+          <div class="item_image_wrapper">
+            <img src="{{ article.img }}" alt="" class="product_image" />
+
+            <img
+              src="../../../assets/remove_icon.svg"
+              alt=""
+              class="product_image_icon"
+            />
+          </div>
+
+          <div class="item_description">
+            <div class="item_name">{{ article.name }}</div>
+          </div>
+        </div>
+
+        <div class="item_price">{{ article.material }}</div>
+
+        <div class="item_quantity_wrapper">
+          <div class="item_price">{{ article.crafting }} days</div>
+        </div>
+
+        <div class="item_total_price">${{ article.price }}</div>
+      </div>
+    </div>
+  </div>
+</div>

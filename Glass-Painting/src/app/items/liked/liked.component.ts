@@ -3,17 +3,19 @@ import { ApiService } from 'src/app/api.service';
 import { Article } from 'src/app/types/article';
 
 @Component({
-  selector: 'app-catalogue',
-  templateUrl: './catalogue.component.html',
-  styleUrls: ['./catalogue.component.css'],
+  selector: 'app-liked',
+  templateUrl: './liked.component.html',
+  styleUrls: ['./liked.component.css'],
 })
-export class CatalogueComponent implements OnInit {
+export class LikedComponent implements OnInit {
   itemsList: Article[] = [];
   isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
-    this.apiService.getAllItems().subscribe({
+    const userId = localStorage.getItem('userId');
+
+    this.apiService.getLikedArts(userId!).subscribe({
       next: (items) => {
         this.itemsList = items;
         this.isLoading = false;

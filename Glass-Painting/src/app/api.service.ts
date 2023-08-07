@@ -24,6 +24,13 @@ export class ApiService {
     return this.http.get<Article[]>(`${apiURL}/data/items/trending`);
   }
 
+  getLikedArts(userId: string) {
+    const { apiURL } = environment;
+    console.log(userId);
+
+    return this.http.get<Article[]>(`${apiURL}/data/items/${userId}/liked`);
+  }
+
   orderArticle(
     name: string,
     sureName: string,
@@ -41,5 +48,19 @@ export class ApiService {
       .subscribe((data) => {
         console.log(data);
       });
+  }
+
+  like(articleId: string, userId: string) {
+    const { apiURL } = environment;
+    return this.http.post(`${apiURL}/data/items/${articleId}`, {
+      userId: userId,
+    });
+  }
+
+  unlike(articleId: string, userId: string) {
+    const { apiURL } = environment;
+    return this.http.put(`${apiURL}/data/items/${articleId}`, {
+      userId: userId,
+    });
   }
 }

@@ -1,1 +1,29 @@
-<p>catalogue works!</p>
+<div *ngIf="isLoading">
+  <app-loader />
+</div>
+<div class="header_wrapper">
+  <h1 class="catalogue_header">Ecommerce Acceories & Fashion item</h1>
+  <div class="search_bar_wrapper">
+    <input class="search_bar_input" type="text" />
+
+    <button class="search_bar_button">
+      <img src="../../../assets/uil_search.svg" />
+    </button>
+  </div>
+</div>
+
+<div class="product_wrapper">
+  <div class="product_item" *ngFor="let article of itemsList">
+    <img src="{{ article.img }}" alt="" class="product_image" />
+
+    <p class="item_name">{{ article.name }}</p>
+
+    <p class="product_price">${{ article.price }}</p>
+    <button
+      class="product_card_button"
+      [routerLink]="['/catalogue', article._id]"
+    >
+      Details
+    </button>
+  </div>
+</div>

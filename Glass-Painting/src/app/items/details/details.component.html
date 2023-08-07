@@ -54,9 +54,9 @@
 
         <div class="buttons_wrapper">
           <ng-container *ngIf="isAuthenticated">
-            <div class="like_icon"></div>
+            <div class="like_icon" *ngIf="isLiked" (click)="unLike()"></div>
 
-            <div class="unlike_icon"></div>
+            <div class="unlike_icon" *ngIf="!isLiked" (click)="like()"></div>
 
             <!-- <button class="button button_buy">Buy</button> -->
           </ng-container>

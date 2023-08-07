@@ -14,7 +14,7 @@ import { UserService } from 'src/app/user/user.service';
 export class DetailsComponent implements OnInit, OnDestroy {
   article: Article | undefined;
   isLoading: boolean = true;
-
+  isLiked: boolean = false;
   private authenticationSub: Subscription | undefined;
 
   isAuthenticated = false;
@@ -39,6 +39,32 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.isAuthenticated = this.userService.getIsAuthenticated();
   }
 
+  like(): void {
+    const articleId = this.activeRoute.snapshot.params['articleId'];
+    const userId = localStorage.getItem('userId');
+    this.apiService.like(articleId, userId!).subscribe({
+      next: (item) => {
+        this.isLiked = true;
+      },
+      error: (err) => {
+        console.log(`Error: ${err.message}`);
+      },
+    });
+  }
+
+  unLike(): void {
+    const articleId = this.activeRoute.snapshot.params['articleId'];
+    const userId = localStorage.getItem('userId');
+    this.apiService.unlike(articleId, userId!).subscribe({
+      next: (item) => {
+        this.isLiked = false;
+      },
+      error: (err) => {
+        console.log(`Error: ${err.message}`);
+      },
+    });
+  }
+
   goBack(): void {
     this.location.back();
   }
@@ -47,8 +73,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
     this.apiService.getArticle(id).subscribe({
       next: (item) => {
+        const userId = localStorage.getItem('userId');
+
         this.article = item;
         this.isLoading = false;
+        this.isLiked = item.likes.includes(userId!);
       },
       error: (err) => {
         this.isLoading = false;

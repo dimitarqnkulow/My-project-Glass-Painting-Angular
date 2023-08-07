@@ -14,7 +14,7 @@ import { UserService } from 'src/app/user/user.service';
 export class MakeComponent {
   form = this.fb.group({
     name: ['', [Validators.required, nameValidator()]],
-    sureName: ['', [Validators.required]],
+    sureName: [''],
     phone: [
       '',
       [Validators.required, phoneNumberValidator(), Validators.minLength(10)],

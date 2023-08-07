@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 })
 export class UserService {
   private token: string = '';
+  private userId: string = '';
   private authenticated$$ = new Subject<boolean>();
   private isAuthenticated = false;
 
@@ -40,17 +41,18 @@ export class UserService {
     const { apiURL } = environment;
 
     return this.http
-      .post<{ token: string }>(`${apiURL}/users/login`, {
+      .post<{ token: string; userId: string }>(`${apiURL}/users/login`, {
         email: email,
         password: password,
       })
       .subscribe((res) => {
         this.token = res.token;
+        this.userId = res.userId;
         if (this.token) {
           this.authenticated$$.next(true);
           this.isAuthenticated = true;
         }
-        this.storeUser(this.token);
+        this.storeUser(this.token, this.userId);
         this.router.navigate(['/home']);
       });
   }
@@ -63,12 +65,14 @@ export class UserService {
     this.router.navigate(['/home']);
   }
 
-  storeUser(token: string) {
+  storeUser(token: string, userId: string) {
     localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId);
   }
 
   clearUser() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
   }
 
   getUserData() {

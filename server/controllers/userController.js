@@ -15,12 +15,13 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const token = await userManager.login(req.body);
-
-    return res.status(200).json({ token: token });
+    const logingUser = await userManager.login(req.body);
+    const token = logingUser.token;
+    const userId = logingUser.userId;
+    return res.status(200).json({ token: token, userId: userId });
   } catch (err) {
     res.status(401).json({
-      message: "Unauthorized",
+      message: `${err.message}`,
     });
   }
 });

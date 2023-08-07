@@ -136,9 +136,23 @@
   width: 25px;
   height: 25px;
   background-size: cover;
+  cursor: pointer;
+}
+.product_wrapper .product_box .like_icon:hover {
+  background: url("../../../assets/not_liked.png");
+  width: 25px;
+  height: 25px;
+  background-size: cover;
 }
 .product_wrapper .product_box .unlike_icon {
   background: url("../../../assets/not_liked.png");
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  cursor: pointer;
+}
+.product_wrapper .product_box .unlike_icon:hover {
+  background: url("../../../assets/liked.png");
   width: 25px;
   height: 25px;
   background-size: cover;
