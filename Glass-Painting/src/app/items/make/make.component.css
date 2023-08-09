@@ -57,6 +57,7 @@
   text-align: start;
 }
 .form_wrapper .form .button {
+  cursor: pointer;
   width: 134px;
   height: 39px;
   border: none;

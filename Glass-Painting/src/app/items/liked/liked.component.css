@@ -62,6 +62,7 @@
   width: 100%;
 }
 .header .back_button {
+  cursor: pointer;
   color: #fb2e86;
   font-family: Lato;
   font-size: 16px;

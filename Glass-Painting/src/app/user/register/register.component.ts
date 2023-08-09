@@ -37,5 +37,6 @@ export class RegisterComponent {
     const { email, passGroup: { password, repeatPassword } = {} } =
       this.form.value;
     this.userService.register(email!, password!, repeatPassword!);
+    this.router.navigate(['/login'])
   }
 }

@@ -6,6 +6,8 @@
   padding: 6rem 20rem;
 }
 .header .back_button {
+  cursor: pointer;
+
   color: #fb2e86;
   font-family: Lato;
   font-size: 16px;
@@ -164,6 +166,7 @@
   justify-content: center;
 }
 .product_wrapper .product_box .buttons_wrapper .button {
+  cursor: pointer;
   display: flex;
   padding: 11px 39px;
   justify-content: center;

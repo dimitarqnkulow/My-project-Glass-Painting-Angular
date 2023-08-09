@@ -58,6 +58,7 @@
   padding: 5px;
 }
 .register_page .register_wrapper .ng_form .sign_in_button {
+  cursor: pointer;
   width: 432px;
   height: 47px;
   flex-shrink: 0;
