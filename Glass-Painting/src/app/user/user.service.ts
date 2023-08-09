@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 export class UserService {
   private token: string = '';
   private userId: string = '';
+  private email: string = '';
   private authenticated$$ = new Subject<boolean>();
   private isAuthenticated = false;
 
@@ -41,18 +42,23 @@ export class UserService {
     const { apiURL } = environment;
 
     return this.http
-      .post<{ token: string; userId: string }>(`${apiURL}/users/login`, {
-        email: email,
-        password: password,
-      })
+      .post<{ token: string; userId: string; email: string }>(
+        `${apiURL}/users/login`,
+        {
+          email: email,
+          password: password,
+        }
+      )
       .subscribe((res) => {
         this.token = res.token;
         this.userId = res.userId;
+        this.email = res.email;
+        
         if (this.token) {
           this.authenticated$$.next(true);
           this.isAuthenticated = true;
         }
-        this.storeUser(this.token, this.userId);
+        this.storeUser(this.token, this.userId, this.email);
         this.router.navigate(['/home']);
       });
   }
@@ -65,24 +71,26 @@ export class UserService {
     this.router.navigate(['/home']);
   }
 
-  storeUser(token: string, userId: string) {
+  storeUser(token: string, userId: string, email: string) {
     localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
+    localStorage.setItem('email', email);
   }
 
   clearUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('email');
   }
 
   getUserData() {
     const token = localStorage.getItem('token');
-
+    const email = localStorage.getItem('email');
     if (!token) {
       return;
     }
 
-    return { token: token };
+    return { token: token, email: email };
   }
 
   authenticateFromLocalStorage() {

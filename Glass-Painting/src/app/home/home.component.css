@@ -172,6 +172,7 @@
   text-decoration: line-through;
 }
 .home_wrapper .product_card .product_card_button {
+  cursor: pointer;
   display: inline-flex;
   padding: 11px 39px;
   justify-content: center;

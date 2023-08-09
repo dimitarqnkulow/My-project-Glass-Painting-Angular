@@ -52,6 +52,7 @@
 .header_wrapper .search_bar_wrapper .search_bar_button {
   background: #fb2e86;
   border: none;
+  cursor: pointer;
   height: 40px;
   width: 51px;
 }
@@ -78,7 +79,9 @@
   line-height: 20px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .header_wrapper .user_buttons_wrapper .logout {
   color: #fb2e86;
+  cursor: pointer;
 }

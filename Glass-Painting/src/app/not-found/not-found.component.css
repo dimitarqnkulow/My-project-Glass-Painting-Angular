@@ -1,0 +1,12 @@
+.gif {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 10rem;
+}
+
+.image {
+  width: 35%;
+  height: auto;
+}
