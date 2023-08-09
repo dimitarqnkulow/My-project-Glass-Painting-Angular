@@ -18,7 +18,9 @@ router.post("/login", async (req, res) => {
     const logingUser = await userManager.login(req.body);
     const token = logingUser.token;
     const userId = logingUser.userId;
-    return res.status(200).json({ token: token, userId: userId });
+    const email = logingUser.email;
+
+    return res.status(200).json({ token: token, userId: userId, email: email });
   } catch (err) {
     res.status(401).json({
       message: `${err.message}`,

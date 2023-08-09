@@ -17,7 +17,9 @@
     </nav>
 
     <div class="search_bar_wrapper">
-      <div class="loged_user" *ngIf="userAuthenticated">Hello, user email!</div>
+      <div class="loged_user" *ngIf="userAuthenticated">
+        Hello, {{ email }}!
+      </div>
     </div>
 
     <div class="user_buttons_wrapper">

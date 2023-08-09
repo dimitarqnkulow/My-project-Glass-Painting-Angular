@@ -30,7 +30,7 @@ exports.login = async ({ email, password }) => {
 
   const token = await generateToken(user);
 
-  return { token: token, userId: user._id };
+  return { token: token, userId: user._id, email: user.email };
 };
 
 async function generateToken(user) {

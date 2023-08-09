@@ -13,14 +13,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   authenticationSub: Subscription | undefined;
   userAuthenticated = false;
-
+  email: any = '';
   ngOnDestroy(): void {
     this.authenticationSub?.unsubscribe();
   }
 
   ngOnInit(): void {
     this.userAuthenticated = this.userService.getIsAuthenticated();
-
+    this.email = localStorage.getItem('email');
     this.authenticationSub = this.userService
       .getAuthenticated()
       .subscribe((status) => {
