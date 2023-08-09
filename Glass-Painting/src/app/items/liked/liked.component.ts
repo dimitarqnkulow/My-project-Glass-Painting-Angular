@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Article } from 'src/app/types/article';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-liked',
@@ -11,7 +12,7 @@ export class LikedComponent implements OnInit {
   itemsList: Article[] = [];
   isLoading: boolean = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private location: Location) {}
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
 
@@ -26,5 +27,8 @@ export class LikedComponent implements OnInit {
         console.error(`Error: ${err}`);
       },
     });
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
