@@ -1,6 +1,3 @@
-<div *ngIf="isLoading">
-  <app-loader />
-</div>
 <div class="header_wrapper">
   <h1 class="catalogue_header">Ecommerce Acceories & Fashion item</h1>
   <div class="search_bar_wrapper">
@@ -13,12 +10,23 @@
 </div>
 
 <div class="product_wrapper">
+  <div class="loading_wrapper" *ngIf="isLoading">
+    <div class="loader">
+      <app-loader />
+    </div>
+  </div>
   <div class="product_item" *ngFor="let article of itemsList">
     <img src="{{ article.img }}" alt="" class="product_image" />
 
     <p class="item_name">{{ article.name }}</p>
 
-    <p class="product_price">${{ article.price }}</p>
+    <p class="product_price">
+      ${{ article.price }}
+
+      <span class="product_card_discount_price"
+        >${{ article.price + article.price * 0.25 }}
+      </span>
+    </p>
     <button
       class="product_card_button"
       [routerLink]="['/catalogue', article._id]"

@@ -7,13 +7,31 @@ h1 {
 .product_price {
   color: var(--text, #151875);
   text-align: center;
-
+  position: relative;
   /* Caption\ */
   font-family: Josefin Sans;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin: 0 auto;
+}
+.product_price .product_card_discount_price {
+  color: rgba(21, 24, 117, 0.3);
+  text-align: center;
+  position: absolute;
+  right: -45px;
+  /* price cut */
+  font-family: Josefin Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: line-through;
 }
 
 .item_name {
@@ -70,6 +88,7 @@ h1 {
   line-height: normal;
 }
 .product_item .product_card_button {
+  cursor: pointer;
   display: inline-flex;
   padding: 11px 39px;
   justify-content: center;
@@ -84,8 +103,6 @@ h1 {
   font-weight: 600;
   line-height: normal;
   border: none;
-  position: absolute;
-  bottom: -25px;
 }
 
 .header_wrapper .search_bar_wrapper {
@@ -100,6 +117,7 @@ h1 {
   width: 317px;
 }
 .header_wrapper .search_bar_wrapper .search_bar_button {
+  cursor: pointer;
   background: #fb2e86;
   border: none;
   height: 40px;
