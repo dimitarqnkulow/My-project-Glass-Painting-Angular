@@ -36,6 +36,6 @@ export class MakeComponent {
 
     this.apiService.orderArticle(name!, sureName!, phone!, description!);
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/make/complete']);
   }
 }

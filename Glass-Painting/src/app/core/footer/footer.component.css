@@ -18,7 +18,8 @@
   line-height: normal;
   margin-bottom: 15px;
 }
-.footer_wrapper .contact_info, .footer_wrapper a {
+.footer_wrapper .contact_info,
+.footer_wrapper a {
   color: var(--sub-text-color, #8a8fb9);
   /* paragraph text */
   font-family: Lato;

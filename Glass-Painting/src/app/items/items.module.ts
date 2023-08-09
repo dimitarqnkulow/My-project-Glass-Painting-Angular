@@ -7,9 +7,10 @@ import { MakeComponent } from './make/make.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { LikedComponent } from './liked/liked.component';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
 
 @NgModule({
-  declarations: [DetailsComponent, CatalogueComponent, MakeComponent, LikedComponent],
+  declarations: [DetailsComponent, CatalogueComponent, MakeComponent, LikedComponent, CompleteOrderComponent],
   imports: [
     CommonModule,
     ItemsRoutingModule,
