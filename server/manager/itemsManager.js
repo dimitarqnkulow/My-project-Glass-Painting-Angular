@@ -7,13 +7,13 @@ exports.create = (articleData) => {
 };
 
 exports.getAll = async (qs) => {
-  let query = Article.find();
-  if (qs.where) {
-    let [fieldName, ownerId] = qs.where.split("=");
-    ownerId = ownerId.replaceAll('"', "");
-    query = query.find({ ownerId: ownerId });
+  let filteredArticles = await Article.find().lean();
+  if (qs) {
+    filteredArticles = filteredArticles.filter((article) =>
+      article.name.toLowerCase().includes(qs.search.toLowerCase())
+    );
   }
-  const result = await query;
+  const result = await filteredArticles;
 
   return result;
 };

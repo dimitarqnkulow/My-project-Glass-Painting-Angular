@@ -5,7 +5,6 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   const article = await articleManager.getAll(req.query);
-
   res.json(article);
 });
 router.get("/trending", async (req, res) => {

@@ -1,9 +1,9 @@
 <div class="header_wrapper">
   <h1 class="catalogue_header">Ecommerce Acceories & Fashion item</h1>
   <div class="search_bar_wrapper">
-    <input class="search_bar_input" type="text" />
+    <input class="search_bar_input" type="text" #inputSearch />
 
-    <button class="search_bar_button">
+    <button class="search_bar_button" (click)="search(inputSearch.value)">
       <img src="../../../assets/uil_search.svg" />
     </button>
   </div>

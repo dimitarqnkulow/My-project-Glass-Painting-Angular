@@ -13,7 +13,6 @@
       <div class="list_header_item second_item">Crafting</div>
       <div class="list_header_item second_item">Optional Price</div>
     </div>
-
     <div class="items_wrapper">
       <div class="item" *ngFor="let article of itemsList">
         <div class="item_wrapper">
@@ -40,6 +39,10 @@
 
         <div class="item_total_price">${{ article.price }}</div>
       </div>
+
+      <ng-container *ngIf="!itemsList.length">
+        <div class="noLiked"><p>You didn't like any articles! :)</p></div>
+      </ng-container>
     </div>
   </div>
 </div>

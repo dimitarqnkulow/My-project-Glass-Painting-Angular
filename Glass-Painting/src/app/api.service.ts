@@ -10,11 +10,10 @@ import { Order } from './types/order';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getAllItems() {
+  getAllItems(input: string) {
     const { apiURL } = environment;
-    return this.http.get<Article[]>(`${apiURL}/data/items`);
+    return this.http.get<Article[]>(`${apiURL}/data/items?search=${input}`);
   }
-
   getArticle(articleId: string) {
     const { apiURL } = environment;
     return this.http.get<Article>(`${apiURL}/data/items/${articleId}`);

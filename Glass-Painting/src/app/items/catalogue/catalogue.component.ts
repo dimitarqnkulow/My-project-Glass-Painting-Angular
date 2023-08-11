@@ -13,7 +13,21 @@ export class CatalogueComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
-    this.apiService.getAllItems().subscribe({
+    this.apiService.getAllItems('').subscribe({
+      next: (items) => {
+        this.itemsList = items;
+        this.isLoading = false;
+        console.log(items);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.error(`Error: ${err}`);
+      },
+    });
+  }
+
+  search(input: string) {
+    this.apiService.getAllItems(input).subscribe({
       next: (items) => {
         this.itemsList = items;
         this.isLoading = false;
