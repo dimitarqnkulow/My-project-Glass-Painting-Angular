@@ -1,8 +1,8 @@
 const express = require("express");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-const { auth } = require("./middlewares/authMiddleware");
 const app = express();
+const PORT = 3030;
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/glass-painting")
@@ -21,6 +21,4 @@ app.use((req, res, next) => {
 
 app.use(routes);
 
-app.listen(3030, () =>
-  console.log("RESTful server is listening on port 3030...")
-);
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}...`));
