@@ -42,16 +42,12 @@ router.get("/:articleId", async (req, res) => {
 
 router.post("/:articleId", auth, async (req, res) => {
   const userId = req.body.userId;
-
-  await articleManager.addLike(req.params.articleId, userId);
-
-  res.status(204).end();
+  const likes = await articleManager.addLike(req.params.articleId, userId);
+  res.json(likes);
 });
 router.put("/:articleId", auth, async (req, res) => {
   const userId = req.body.userId;
-
-  await articleManager.removeLike(req.params.articleId, userId);
-
-  res.status(204).end();
+  const likes = await articleManager.removeLike(req.params.articleId, userId);
+  res.json(likes);
 });
 module.exports = router;

@@ -18,13 +18,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private authenticationSub: Subscription | undefined;
 
   isAuthenticated = false;
+  likes: any;
   constructor(
     private apiService: ApiService,
     private activeRoute: ActivatedRoute,
     private location: Location,
     private userService: UserService
   ) {}
-
   ngOnDestroy(): void {
     this.authenticationSub?.unsubscribe();
   }
@@ -45,6 +45,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.apiService.like(articleId, userId!).subscribe({
       next: (item) => {
         this.isLiked = true;
+        this.likes = item;
       },
       error: (err) => {
         console.log(`Error: ${err.message}`);
@@ -58,6 +59,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.apiService.unlike(articleId, userId!).subscribe({
       next: (item) => {
         this.isLiked = false;
+        this.likes = item;
       },
       error: (err) => {
         console.log(`Error: ${err.message}`);
@@ -76,6 +78,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
         const userId = localStorage.getItem('userId');
 
         this.article = item;
+        this.likes = item.likes.length;
         this.isLoading = false;
         this.isLiked = item.likes.includes(userId!);
       },

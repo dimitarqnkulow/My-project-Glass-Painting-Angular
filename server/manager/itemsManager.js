@@ -25,17 +25,18 @@ exports.getTrending = () => {
 };
 
 exports.getLikedArts = (userId) => {
-  return Article.find({ likes: {$in: userId} });
+  return Article.find({ likes: { $in: userId } });
 };
 exports.addLike = async (articleId, userId) => {
   const article = await Article.findById(articleId);
   article.likes.push(userId);
   article.save();
+  return article.likes.length;
 };
 
 exports.removeLike = async (articleId, userId) => {
   const article = await Article.findById(articleId);
   article.likes.pull(userId);
   article.save();
+  return article.likes.length;
 };
-// exports.delete = (articleId) => Article.findByIdAndDelete(articleId);

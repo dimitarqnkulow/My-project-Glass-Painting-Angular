@@ -57,7 +57,7 @@ h1 {
 }
 
 .product_wrapper {
-  padding: 2rem 5rem;
+  padding: 2rem 15rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -65,7 +65,7 @@ h1 {
   gap: 53px;
 }
 .header_wrapper {
-  padding: 2rem 5rem;
+  padding: 2rem 15rem;
   display: flex;
   flex-direction: column;
 }
