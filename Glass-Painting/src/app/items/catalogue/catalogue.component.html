@@ -3,7 +3,11 @@
   <div class="search_bar_wrapper">
     <input class="search_bar_input" type="text" #inputSearch />
 
-    <button class="search_bar_button" (click)="search(inputSearch.value)">
+    <button
+      class="search_bar_button"
+      type="submit"
+      (click)="search(inputSearch.value)"
+    >
       <img src="../../../assets/uil_search.svg" />
     </button>
   </div>
