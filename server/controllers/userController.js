@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.post("/register", async (req, res) => {
   try {
     const result = await userManager.register(req.body);
-    res.status(201).json({ message: "User created", result: result });
+    res.status(201).json(result);
   } catch (err) {
     res.status(400).json({
       message: err.message,
@@ -19,10 +19,15 @@ router.post("/login", async (req, res) => {
     const token = logingUser.token;
     const userId = logingUser.userId;
     const email = logingUser.email;
-
-    return res.status(200).json({ token: token, userId: userId, email: email });
+    const expiresIn = logingUser.expiresIn;
+    return res.status(200).json({
+      token: token,
+      userId: userId,
+      email: email,
+      expiresIn: expiresIn,
+    });
   } catch (err) {
-    res.status(401).json({
+    res.status(400).json({
       message: `${err.message}`,
     });
   }

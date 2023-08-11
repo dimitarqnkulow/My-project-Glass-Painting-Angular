@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: [true, "There’s an existing account associated with this email!"],
     match: [/[^@]{6,}@(abv|gmail|yahoo)\.(bg|com)$/, "Invalid email adress!"],
   },
   password: {

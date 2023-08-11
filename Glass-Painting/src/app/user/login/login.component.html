@@ -2,7 +2,7 @@
   <div class="register_wrapper">
     <div class="heading">Login</div>
 
-    <div class="error_register">Error! Invalid password!</div>
+    <div class="error_register" *ngIf="errorMsg">{{ errorMsg }}</div>
 
     <form class="ng_form" [formGroup]="form" (ngSubmit)="login()">
       <input

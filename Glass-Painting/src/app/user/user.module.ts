@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserRoutingModule } from './user-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { userInterceptorProvider } from './user.interceptor';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],

@@ -7,7 +7,7 @@ exports.register = async (userData) => {
   const user = await User.findOne({ email: userData.email });
 
   if (user) {
-    throw new Error("Username already exists!");
+    throw new Error("There’s an existing account associated with this email!");
   }
   const createdUser = await User.create(userData);
 
@@ -30,7 +30,7 @@ exports.login = async ({ email, password }) => {
 
   const token = await generateToken(user);
 
-  return { token: token, userId: user._id, email: user.email };
+  return { token: token, userId: user._id, email: user.email, expiresIn: 3600 };
 };
 
 async function generateToken(user) {
