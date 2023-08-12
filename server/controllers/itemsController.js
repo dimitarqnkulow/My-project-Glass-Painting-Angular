@@ -4,7 +4,7 @@ const { auth } = require("../middlewares/authMiddleware");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-  const article = await articleManager.getAll(req.query);
+  const article = await articleManager.getAll(req.query.search);
   res.json(article);
 });
 router.get("/trending", async (req, res) => {
@@ -13,7 +13,7 @@ router.get("/trending", async (req, res) => {
   res.json(article);
 });
 
-router.get("/:userId/liked", async (req, res) => {
+router.get("/:userId/liked", auth, async (req, res) => {
   const article = await articleManager.getLikedArts(req.params.userId);
 
   res.json(article);

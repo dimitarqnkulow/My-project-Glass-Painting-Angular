@@ -1,8 +1,8 @@
 # My project Glass-Painting Angular
 
-This is my first full stack project with using Angular for the frontend and express and mongoose for the backend.
+This is my first full stack project using Angular for the frontend and express and mongoose for the backend.
 
-It's a website for an artist who is creating diffrent types of paints on glaasses and plastic products, which is based on customer desire, idea, description etc.
+It's a website for an artist who is creating diffrent types of paintings on glass and plastic products, which is based on customer desire, idea, description etc.
 
 ##How to start the project
 
@@ -18,7 +18,7 @@ It's a website for an artist who is creating diffrent types of paints on glaasse
 
 Application overview:
 
-Every page have a footer and a dynamic navigation, which depends on logged/authenticated user.
+Every page has a footer and a dynamic navigation, which depends on logged/authenticated user.
 
 Public pages, which can be used by all users:
 

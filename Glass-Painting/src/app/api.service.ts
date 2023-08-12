@@ -10,7 +10,7 @@ import { Order } from './types/order';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getAllItems(input: string) {
+  getAllItems(input: string | undefined) {
     const { apiURL } = environment;
     return this.http.get<Article[]>(`${apiURL}/data/items?search=${input}`);
   }

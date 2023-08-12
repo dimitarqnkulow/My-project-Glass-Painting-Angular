@@ -17,7 +17,6 @@ export class CatalogueComponent implements OnInit {
       next: (items) => {
         this.itemsList = items;
         this.isLoading = false;
-        console.log(items);
       },
       error: (err) => {
         this.isLoading = false;
@@ -31,7 +30,6 @@ export class CatalogueComponent implements OnInit {
       next: (items) => {
         this.itemsList = items;
         this.isLoading = false;
-        console.log(items);
       },
       error: (err) => {
         this.isLoading = false;

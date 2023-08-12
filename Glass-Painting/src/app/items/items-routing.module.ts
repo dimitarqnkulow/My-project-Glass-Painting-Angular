@@ -29,10 +29,12 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: MakeComponent,
+        canActivate: [AuthActivate],
       },
       {
         path: 'complete',
         component: CompleteOrderComponent,
+        canActivate: [AuthActivate],
       },
     ],
   },
