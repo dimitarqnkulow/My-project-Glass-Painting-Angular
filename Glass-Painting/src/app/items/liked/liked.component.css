@@ -14,7 +14,7 @@
 }
 .cart_wrapper {
   margin-top: 100px;
-  padding: 0 20rem;
+  padding: 5rem 20rem;
 }
 .item_wrapper {
   width: 40%;
@@ -30,6 +30,7 @@
   position: relative;
 }
 .product_image {
+  cursor: pointer;
   max-width: 83px;
   max-height: 87px;
   border-radius: 3px;
@@ -40,6 +41,7 @@
   padding-top: 5px;
 }
 .product_image_icon {
+  cursor: pointer;
   position: absolute;
   top: -5px;
   right: -5px;

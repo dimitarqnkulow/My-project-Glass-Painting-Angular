@@ -8,9 +8,17 @@ router.get("/", async (req, res) => {
   res.json(article);
 });
 router.get("/trending", async (req, res) => {
-  const article = await articleManager.getTrending();
-
-  res.json(article);
+  let articles = await articleManager.getTrending();
+  articles = articles
+    .sort((a, b) => {
+      if (a.likes.length > b.likes.length) {
+        return -1;
+      } else {
+        return 1;
+      }
+    })
+    .slice(0, 3);
+  res.json(articles);
 });
 
 router.get("/:userId/liked", auth, async (req, res) => {

@@ -8,7 +8,7 @@ const articleSchema = new mongoose.Schema({
   img: { type: String, required: true },
   material: { type: String, required: true },
   crafting: { type: Number, required: true },
-  likes: [{ type: mongoose.Types.ObjectId, ref: User }],
+  likes: [{ type: String }],
 });
 
 const Article = mongoose.model("Article", articleSchema);

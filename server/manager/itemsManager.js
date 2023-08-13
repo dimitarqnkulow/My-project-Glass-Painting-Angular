@@ -10,7 +10,7 @@ exports.getAll = async (qs) => {
   let filteredArticles = await Article.find().lean();
   if (qs) {
     filteredArticles = filteredArticles.filter((article) =>
-      article.name.toLowerCase().includes(qs.toLowerCase())
+      article.name.toLowerCase().includes(qs.search.toLowerCase())
     );
   }
   const result = await filteredArticles;
@@ -20,8 +20,8 @@ exports.getAll = async (qs) => {
 
 exports.getOne = (articleId) => Article.findById(articleId);
 
-exports.getTrending = () => {
-  return Article.find().sort({ likes: "desc" }).limit(3);
+exports.getTrending = async () => {
+  return await Article.find();
 };
 
 exports.getLikedArts = (userId) => {

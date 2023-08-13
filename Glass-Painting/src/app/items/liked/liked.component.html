@@ -17,12 +17,18 @@
       <div class="item" *ngFor="let article of itemsList">
         <div class="item_wrapper">
           <div class="item_image_wrapper">
-            <img src="{{ article.img }}" alt="" class="product_image" />
+            <img
+              src="{{ article.img }}"
+              alt=""
+              class="product_image"
+              [routerLink]="['/catalogue', article._id]"
+            />
 
             <img
               src="../../../assets/remove_icon.svg"
               alt=""
               class="product_image_icon"
+              (click)="unLike(article._id)"
             />
           </div>
 

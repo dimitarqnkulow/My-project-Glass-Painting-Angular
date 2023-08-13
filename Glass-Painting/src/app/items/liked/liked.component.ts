@@ -31,4 +31,25 @@ export class LikedComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  unLike(articleId: string): void {
+    const userId = localStorage.getItem('userId');
+    this.apiService.unlike(articleId, userId!).subscribe({
+      next: (item) => {},
+      error: (err) => {
+        console.log(`Error: ${err.message}`);
+      },
+    });
+    this.apiService.getLikedArts(userId!).subscribe({
+      next: (items) => {
+        this.itemsList = items;
+        this.isLoading = false;
+        console.log(items);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.error(`Error: ${err}`);
+      },
+    });
+  }
 }
