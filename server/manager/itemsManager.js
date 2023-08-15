@@ -10,7 +10,7 @@ exports.getAll = async (qs) => {
   let filteredArticles = await Article.find().lean();
   if (qs) {
     filteredArticles = filteredArticles.filter((article) =>
-      article.name.toLowerCase().includes(qs.search.toLowerCase())
+      article.name.toLowerCase().includes(qs.toLowerCase())
     );
   }
   const result = await filteredArticles;
